@@ -1,16 +1,16 @@
 <template>
-  <div class="main">
-    HomePage
-  </div>
+  <tab-page/>
 </template>
 <script>
+import TabPage from '@/components/TabPage.vue';
+
+export default {
+  name: 'home',
+  components: {
+    TabPage,
+  },
+};
 </script>
-<style lang="css">
-.main {
-  width: calc(100%-230px);
-  margin: 0px;
-  background-color: gray;
-  float: left;
-}
+<style>
 </style>
 

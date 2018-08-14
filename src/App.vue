@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SideBar/>
-    <router-view/>
+    <router-view class="main"/>
   </div>
 </template>
 <script>
@@ -16,5 +16,13 @@ export default {
 <style>
 body {
   margin: 0;
+}
+.main {
+  width: calc(100% - 290px);
+  padding:30px;
+  height: 100vh;
+  margin: 0px;
+  background-color: #F4F5F7;
+  float: left;
 }
 </style>

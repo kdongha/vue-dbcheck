@@ -1,13 +1,11 @@
 const state = {
-  type: 'file',
+  file: null,
 };
 const getter = {};
 const mutations = {
-  getType(state, type) {
-    return state.type === type;
-  },
-  setType(state, type) {
-    state.type = type;
+  setFile(state, file) {
+    state.file = file;
+    console.log(state.file);
   },
 };
 const actions = {};

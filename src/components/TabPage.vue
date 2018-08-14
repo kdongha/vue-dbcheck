@@ -6,10 +6,9 @@
       <li :class="{ active : (type==='url')}" @click="setType('url')">Url</li>
     </ul>
     <div v-show="type==='file'" class="tabPage">
-        <div class="tabDrop"><span>Drop file or Click</span></div>
+      <DropZone/>
     </div>
     <div v-show="type==='hash'" class="tabPage">
-
     </div>
     <div v-show="type==='url'" class="tabPage">
 
@@ -18,6 +17,7 @@
 </template>
 <script>
 import { mapState, mapMutations } from 'vuex';
+import DropZone from './DropZone.vue';
 
 export default {
   name: 'tabPage',
@@ -26,6 +26,9 @@ export default {
   },
   methods: {
     ...mapMutations('TabPage', ['setType']),
+  },
+  components: {
+    DropZone,
   },
 };
 </script>
@@ -55,13 +58,6 @@ export default {
   padding-top: 3px;
   padding-left: 5px;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.tabDrop {
-  text-align: center;
-  font-size: 3rem;
 }
 </style>
 

@@ -9,15 +9,17 @@
       <DropZone/>
     </div>
     <div v-show="type==='hash'" class="tabPage">
+      <Input type="hash"/>
     </div>
     <div v-show="type==='url'" class="tabPage">
-
+       <Input type="url"/>
     </div>
   </div>
 </template>
 <script>
 import { mapState, mapMutations } from 'vuex';
 import DropZone from './DropZone.vue';
+import Input from './Input.vue';
 
 export default {
   name: 'tabPage',
@@ -29,6 +31,7 @@ export default {
   },
   components: {
     DropZone,
+    Input,
   },
 };
 </script>

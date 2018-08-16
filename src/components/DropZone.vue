@@ -6,9 +6,9 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapActions } from 'vuex';
 
-const inputFile = document.createElement('INPUT');
+let inputFile = document.createElement('INPUT');
 inputFile.setAttribute('type', 'file');
 
 export default {
@@ -17,10 +17,8 @@ export default {
     ...mapMutations('DropZone', ['setFile']),
     clickZone() {
       inputFile.click(this.setFile);
-      inputFile.onchange = () => {
-        this.setFile(inputFile.files[0]);
-      };
     },
+    ...mapActions('DropZone', ['sendFile']),
   },
   mounted() {
     const dropZone = document.getElementById('dropZone');
@@ -41,8 +39,17 @@ export default {
       e.stopPropagation();
       e.preventDefault();
       dropZone.style.backgroundColor = '';
-      this.setFile(e.dataTransfer.files[0]);
+      this.sendFile(e.dataTransfer.files[0]);
+      this.$router.push('result');
     };
+
+    inputFile.onchange = () => {
+      this.sendFile(inputFile.files[0]);
+      inputFile = document.createElement('INPUT');
+      inputFile.setAttribute('type', 'file');
+      this.$router.push('result');
+    };
+
     dropZone.addEventListener('dragover', DragOver, false);
     dropZone.addEventListener('dragleave', DragLeave, false);
     dropZone.addEventListener('drop', DropFile, false);

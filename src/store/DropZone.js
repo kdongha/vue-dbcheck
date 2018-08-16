@@ -7,12 +7,24 @@ const state = {
   file: null,
 };
 const getter = {};
-const mutations = {
-  setFile(state, file) {
-    state.file = file;
+const mutations = {};
+const actions = {
+  sendFile({ commit }, file) {
+    const url = `${server}:${port}/file`;
+    const formData = new FormData();
+    formData.append('file', file);
+    axios({
+      method: 'post',
+      url,
+      data: formData,
+      config: { headers: { 'Content-Type': 'multipart/form-data' } },
+    })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch(error => console.log(`error: ${error}`));
   },
 };
-const actions = {};
 export default {
   namespaced: true,
   state,

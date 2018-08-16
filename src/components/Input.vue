@@ -38,7 +38,7 @@ export default {
   text-align: center;
 }
 .inputSearch {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   border-radius: 10px;
   color: white;
   background-color: #2196f3;

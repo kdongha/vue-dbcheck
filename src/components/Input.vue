@@ -1,12 +1,19 @@
 <template>
   <div class="inputContainer">
-    <input type="text" class="input" :placeholder="getPlaceholder()">
-    <button class="inputSearch">Search</button>
+    <input type="text" v-model="text" class="input" :placeholder="getPlaceholder()">
+    <button class="inputSearch" @click="sendQuery">Search</button>
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   props: ['type'],
+  data() {
+    return {
+      text: '',
+    };
+  },
   methods: {
     getPlaceholder() {
       switch (this.type) {
@@ -17,6 +24,19 @@ export default {
         default:
           return 'Etc...';
       }
+    },
+    ...mapActions('Search', ['sendHash', 'sendUrl']),
+    sendQuery() {
+      switch (this.type) {
+        case 'hash':
+          this.sendHash(this.text);
+          break;
+        case 'url':
+          this.sendUrl(this.text);
+          break;
+        default:
+      }
+      this.text = '';
     },
   },
 };

@@ -8,17 +8,17 @@
 <script>
 import { mapMutations, mapActions } from 'vuex';
 
-let inputFile = document.createElement('INPUT');
+const inputFile = document.createElement('INPUT');
 inputFile.setAttribute('type', 'file');
 
 export default {
   name: 'dropZone',
   methods: {
-    ...mapMutations('DropZone', ['setFile']),
+    ...mapMutations('Search', ['setFile']),
     clickZone() {
-      inputFile.click(this.setFile);
+      inputFile.click();
     },
-    ...mapActions('DropZone', ['sendFile']),
+    ...mapActions('Search', ['sendFile']),
   },
   mounted() {
     const dropZone = document.getElementById('dropZone');
@@ -40,14 +40,12 @@ export default {
       e.preventDefault();
       dropZone.style.backgroundColor = '';
       this.sendFile(e.dataTransfer.files[0]);
-      this.$router.push('result');
     };
 
     inputFile.onchange = () => {
       this.sendFile(inputFile.files[0]);
-      inputFile = document.createElement('INPUT');
-      inputFile.setAttribute('type', 'file');
-      this.$router.push('result');
+      inputFile.type = 'text';
+      inputFile.type = 'file';
     };
 
     dropZone.addEventListener('dragover', DragOver, false);

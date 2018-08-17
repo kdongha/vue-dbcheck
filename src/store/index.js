@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import TabPage from './TabPage';
-import DropZone from './DropZone';
+import Search from './Search';
 import ScanDB from './ScanDB';
 
 Vue.use(Vuex);
@@ -9,7 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   modules: {
     TabPage,
-    DropZone,
+    Search,
     ScanDB,
   },
 });

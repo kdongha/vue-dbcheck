@@ -10,7 +10,13 @@
     v-model="selectedCategories"
     :options="this.categories"
     placeholder="Select categories"/>
-     <date-picker v-model="selectedDate" range lang="en" format="YYYY-MM-DD" confirm/>
+     <date-picker
+     v-model="selectedDate"
+     range
+     lang="en"
+     format="YYYY-MM-DD"
+     confirm
+     not-before="2018-07-05"/>
      <br>
      <br>
      <button class="inputSearch">Scan</button>

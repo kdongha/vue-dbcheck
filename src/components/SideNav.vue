@@ -5,6 +5,9 @@
   </div>
 </template>
 <script>
+export default {
+  name: 'SideNav',
+};
 </script>
 <style>
 .sideNav {

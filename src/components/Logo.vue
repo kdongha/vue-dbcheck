@@ -4,6 +4,9 @@
     </div>
 </template>
 <script>
+export default {
+  name: 'Logo',
+};
 </script>
 <style>
 .logo {

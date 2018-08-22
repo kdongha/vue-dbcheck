@@ -23,6 +23,12 @@ export default {
       type: 'line',
       data: this.data,
       responsive: true,
+      options: {
+        tooltips: {
+          mode: 'index',
+          position: 'nearest',
+        },
+      },
     });
   },
   watch: {

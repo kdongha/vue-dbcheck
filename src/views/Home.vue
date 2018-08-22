@@ -5,8 +5,8 @@
 </div>
 </template>
 <script>
-import TabPage from '@/components/TabPage.vue';
-import Result from '@/components/Result.vue';
+import TabPage from '../components/TabPage.vue';
+import Result from '../components/Result.vue';
 
 export default {
   name: 'home',

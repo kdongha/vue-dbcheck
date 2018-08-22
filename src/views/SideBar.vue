@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import Logo from '@/components/Logo.vue';
-import SideNav from '@/components/SideNav.vue';
+import Logo from '../components/Logo.vue';
+import SideNav from '../components/SideNav.vue';
 
 export default {
   name: 'sidebar',

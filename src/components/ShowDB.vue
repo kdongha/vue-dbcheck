@@ -1,16 +1,16 @@
 <template>
   <div>
-    <button v-if="hsb"
+    <button v-if="hsb.length>0"
     @click="setShowDB('hsb')"
     v-bind:class="{'active':(this.showDB==='hsb'), 'disactive':(this.showDB!=='hsb')}">
       hsb
     </button>
-    <button v-if="mdb"
+    <button v-if="mdb.length>0"
     @click="setShowDB('mdb')"
     v-bind:class="{'active':(this.showDB==='mdb'), 'disactive':(this.showDB!=='mdb')}">
       mdb
     </button>
-    <button v-if="pdb"
+    <button v-if="pdb.length>0"
     @click="setShowDB('pdb')"
     v-bind:class="{'active':(this.showDB==='pdb'), 'disactive':(this.showDB!=='pdb')}">
       pdb
@@ -75,20 +75,20 @@
   </div>
 </template>
 <script>
-import { mapState, mapMutations } from 'vuex';
-import pagination from './Pagination.vue';
+import { mapState, mapMutations } from "vuex";
+import pagination from "./Pagination.vue";
 
 export default {
-  name: 'ShowDB',
+  name: "ShowDB",
   computed: {
-    ...mapState('ScanDB', ['showDB', 'hsb', 'mdb', 'pdb', 'doughnutData']),
+    ...mapState("ScanDB", ["showDB", "hsb", "mdb", "pdb", "doughnutData"])
   },
   methods: {
-    ...mapMutations('ScanDB', ['setShowDB']),
+    ...mapMutations("ScanDB", ["setShowDB"])
   },
   components: {
-    pagination,
-  },
+    pagination
+  }
 };
 </script>
 <style>

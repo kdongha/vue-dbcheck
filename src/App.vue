@@ -22,9 +22,10 @@ body {
 }
 .main {
   width: calc(100vw - 290px);
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
+  height: 100%;
   padding: 30px;
-  margin: 0px;
+  margin-left: 230px;
   background-color: #f4f5f7;
   float: left;
 }

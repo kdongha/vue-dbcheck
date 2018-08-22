@@ -22,6 +22,7 @@ export default {
   background-color: #2c2c2c;
   width: 230px;
   height: 100vh;
+  position: fixed;
   float: left;
 }
 </style>

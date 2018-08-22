@@ -1,6 +1,5 @@
 <template>
     <div class="logo">
-      <img src="@/assets/logo.png">
       <span>DBCheck</span>
     </div>
 </template>

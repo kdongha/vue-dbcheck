@@ -13,6 +13,7 @@ inputFile.setAttribute('type', 'file');
 
 export default {
   name: 'dropZone',
+
   methods: {
     ...mapMutations('Search', ['setFile']),
     clickZone() {

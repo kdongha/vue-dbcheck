@@ -6,18 +6,23 @@
       <li :class="{ active : (type==='url')}" @click="setType('url')">Url</li>
     </ul>
     <div v-show="type==='file'" class="tabPage">
-      <DropZone/>
+      <Spinner :size="50" :line-size="10" v-if="isLoading"/>
+      <DropZone v-else/>
     </div>
     <div v-show="type==='hash'" class="tabPage">
-      <Input type="hash"/>
+      <Spinner :size="50" :line-size="10" v-if="isLoading"/>
+      <Input type="hash" v-else/>
     </div>
     <div v-show="type==='url'" class="tabPage">
-       <Input type="url"/>
+      <Spinner :size="50" :line-size="10" v-if="isLoading"/>
+       <Input type="url" v-else/>
     </div>
   </div>
 </template>
 <script>
 import { mapState, mapMutations } from 'vuex';
+
+import Spinner from 'vue-simple-spinner';
 import DropZone from './DropZone.vue';
 import Input from './Input.vue';
 
@@ -25,6 +30,7 @@ export default {
   name: 'tabPage',
   computed: {
     ...mapState('TabPage', ['type']),
+    ...mapState('Search', ['isLoading']),
   },
   methods: {
     ...mapMutations('TabPage', ['setType']),
@@ -32,6 +38,7 @@ export default {
   components: {
     DropZone,
     Input,
+    Spinner,
   },
 };
 </script>
@@ -61,6 +68,12 @@ export default {
   padding-top: 3px;
   padding-left: 5px;
   border-radius: 10px;
+}
+.tabPage > div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 

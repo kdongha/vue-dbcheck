@@ -5,6 +5,7 @@ const port = '3100';
 
 const state = {
   result: '',
+  isLoading: false,
 };
 const getter = {};
 const mutations = {
@@ -13,10 +14,11 @@ const mutations = {
   },
 };
 const actions = {
-  sendFile({ commit }, file) {
+  sendFile({ state, commit }, file) {
     const url = `${server}:${port}/file`;
     const formData = new FormData();
     formData.append('file', file);
+    state.isLoading = true;
     axios({
       method: 'post',
       url,
@@ -25,6 +27,7 @@ const actions = {
     })
       .then((response) => {
         commit('parseJson', response.data);
+        state.isLoading = false;
       })
       .catch(error => console.log(`error: ${error}`));
   },

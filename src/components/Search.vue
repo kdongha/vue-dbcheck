@@ -1,12 +1,19 @@
 <template>
-  <div class="search">
+  <div>
+    <div  class="search">
     <Multiselect
     multiple
+    :searchable="false"
+    :close-on-select="false"
+    :limit="2"
     v-model="selectedEnvironments"
     :options="this.environments"
     placeholder="Select Environments"/>
     <Multiselect
     multiple
+    :searchable="false"
+    :limit="2"
+    :close-on-select="false"
     v-model="selectedCategories"
     :options="this.categories"
     placeholder="Select categories"/>
@@ -17,16 +24,27 @@
      format="YYYY-MM-DD"
      confirm
      not-before="2018-07-05"/>
-     <br>
-     <br>
-     <button class="inputSearch">Scan</button>
+    </div>
+    <div class="buttonContainer">
+      <Spinner :size="20" :line-size="5" v-if="isLoading"/>
+     <button class="inputSearch" v-else
+     @click="sendScanDB({
+       environments:selectedEnvironments,
+       categories:selectedCategories,
+       startDate:selectedDate[0],
+       endDate:selectedDate[1]
+       })">
+        Scan
+       </button>
+    </div>
   </div>
 </template>
 <script>
 import Multiselect from 'vue-multiselect';
 import DatePicker from 'vue2-datepicker';
+import Spinner from 'vue-simple-spinner';
 
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'Search',
@@ -38,11 +56,15 @@ export default {
     };
   },
   computed: {
-    ...mapState('ScanDB', ['environments', 'categories']),
+    ...mapState('ScanDB', ['environments', 'categories', 'isLoading']),
+  },
+  methods: {
+    ...mapActions('ScanDB', ['sendScanDB']),
   },
   components: {
     Multiselect,
     DatePicker,
+    Spinner,
   },
 };
 </script>
@@ -50,11 +72,21 @@ export default {
 <style>
 .search {
   text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 .multiselect {
-  width: 280px;
+  width: 400px;
   display: inline-block;
   background-color: #ffffff;
+}
+.buttonContainer {
+  margin-top: 3rem;
+  text-align: center;
+}
+.mx-datepicker-range {
+  width: 220px;
 }
 </style>
 

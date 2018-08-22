@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="resultContainer">
     <table v-if="result.hsb">
       <thead>
         <tr>
@@ -71,5 +71,13 @@ export default {
 };
 </script>
 <style>
+.resultContainer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.resultContainer td {
+  overflow-x: auto;
+}
 </style>
 

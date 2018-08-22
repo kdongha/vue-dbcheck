@@ -62,6 +62,9 @@ const mutations = {
   resetData(state) {
     state.lineData = { db: {}, category: {}, environment: {} };
     state.doughnutData = { db: {}, category: {}, environment: {} };
+    state.hsb = null;
+    state.mdb = null;
+    state.pdb = null;
   },
   parseStatistic(state, json) {
     Object.keys(json.db).forEach((element) => {

@@ -32,7 +32,7 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 
 import LineChart from './LineChart.vue';
-import DoughnutChart from './DoughnutChart2.vue';
+import DoughnutChart from './DoughnutChart.vue';
 
 Vue.use(ToggleButton);
 
@@ -87,8 +87,7 @@ export default {
   },
   methods: {
     getLineData() {
-      const labels =
-       Object.keys(this.lineData[this.type][Object.keys(this.lineData[this.type])[0]]);
+      const labels = Object.keys(this.lineData[this.type][Object.keys(this.lineData[this.type])[0]],);
       const datasets = [];
 
       Object.keys(this.lineData[this.type]).forEach((element) => {

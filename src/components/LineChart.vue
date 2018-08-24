@@ -25,8 +25,7 @@ export default {
       responsive: true,
       options: {
         tooltips: {
-          enabled: true,
-          mode: 'index',
+          mode: 'point',
           position: 'nearest',
         },
       },

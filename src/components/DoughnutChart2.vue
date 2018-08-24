@@ -1,5 +1,5 @@
 <template>
-  <div class="LineContainer">
+  <div class="DoughnutContainer">
     <canvas id="myChart"></canvas>
   </div>
 </template>
@@ -10,7 +10,7 @@ let ctx;
 let myChart;
 
 export default {
-  name: 'LineChart',
+  name: 'DoughnutChart',
   props: ['data'],
   methods: {
     test(t) {
@@ -20,15 +20,17 @@ export default {
   mounted() {
     ctx = document.getElementById('myChart');
     myChart = new Chart(ctx, {
-      type: 'line',
+      type: 'doughnut',
       data: this.data,
       responsive: true,
+      maintainAspectRatio: false,
+
       options: {
         tooltips: {
-          enabled: true,
           mode: 'index',
           position: 'nearest',
         },
+        cutoutPercentage: 75,
       },
     });
   },
@@ -41,7 +43,7 @@ export default {
 };
 </script>
 <style>
-.LineContainer {
+.DoughnutContainer {
   width: 80%;
   margin: auto;
 }

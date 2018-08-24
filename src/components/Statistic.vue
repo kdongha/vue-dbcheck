@@ -22,7 +22,7 @@
       :width="130"
       :labels="{checked: 'Line', unchecked: 'Doughnut'}"/>
       <LineChart v-if="line" :data='this.getLineData()'/>
-      <DoughnutChart v-else-if="!line" :chart-data='this.getDoughnutData()'/>
+      <DoughnutChart v-else-if="!line" :data='this.getDoughnutData()'/>
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 
 import LineChart from './LineChart.vue';
-import DoughnutChart from './DoughnutChart.vue';
+import DoughnutChart from './DoughnutChart2.vue';
 
 Vue.use(ToggleButton);
 

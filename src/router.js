@@ -18,5 +18,9 @@ export default new Router({
       path: '/scan',
       component: ScanDB,
     },
+    {
+      path: '*',
+      redirect: '/',
+    },
   ],
 });
